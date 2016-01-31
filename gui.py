@@ -1,12 +1,19 @@
 #!/usr/bin/python
 
 import sys
+import os
 from Tkinter import *
 
 data = []
+car_mileage = 0
+car_price = 0
 
 def		get_data(data):
-	my_file = open("data/data.csv", "r")
+	try:
+		my_file = open("data/data.csv", "r")
+	except IOError:
+		print "error: missing data file \'data/data.csv\'"
+		sys.exit(0)
 	for line in my_file:
 		data.append(line)
 	my_file.close()
@@ -40,6 +47,14 @@ def		draw(data):
 			y = 650 - (100 * int(tmp[1]) / 1800) - 50
 			w.create_line(x, y, x + 5, y, width=5)
 		i += 1
+
+	if os.path.exists("data/mileage.csv") is True and os.path.exists("data/estimated_price.csv") is True:
+		car_mileage = open("data/mileage.csv", "r")
+		car_price = open("data/estimated_price.csv", "r")
+		x = 125 * int(car_mileage.getline()) / 40000 + 50
+		y = 650 - (100 * int(car_price.getline()) / 1800) - 50
+	else:
+		print "no exists"
 
 	mainloop()
 
