@@ -55,7 +55,7 @@ def		draw(data):
 		y = 650 - (100 * int(car_price.readline()) / 1800) - 50
 		w.create_line(x, y, x + 5, y, fill="red", width=5)
 	else:
-		print "no exists"
+		print "warning: missing data file \'data/estimated_price.csv\'"
 
 	mainloop()
 

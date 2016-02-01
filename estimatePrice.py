@@ -27,7 +27,7 @@ else:
 	theta0 = 0
 	theta1 = 0
 
-estimated_price = theta0 + (theta1 * mileage) + 1
+estimated_price = theta0 + (theta1 * mileage)
 estimated_price_file = open("data/estimated_price.csv", "w+")
 estimated_price_file.write(str(estimated_price))
 estimated_price_file.close()
