@@ -12,6 +12,7 @@ try:
 	mileage = int(raw_input("Input: "))
 except ValueError:
 	print "please enter a valid value"
+	sys.exit(0)
 
 if os.path.exists("data/theta.csv") is True:
 	theta_file = open("data/theta.csv", "r")

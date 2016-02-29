@@ -2,6 +2,7 @@
 
 import sys
 import os
+import math
 
 mileages = []
 prices = []
@@ -36,9 +37,8 @@ for line in my_data:
 	i += 1
 
 for i in range(0, len(mileages)):
-	sumtheta0 = sumtheta0 + learningRate * 0.04166 * (float(mileages[i]) - float(prices[i]))
-	sumtheta1 = sumtheta1 + learningRate * 0.04166 * (float(mileages[i]) - float(prices[i])) * float(mileages[i])
-	print sumtheta0
+	sumtheta0 = sumtheta0 + learningRate * float(1) / len(mileages) * (mileages[i] - prices[i])
+	sumtheta1 = sumtheta1 + learningRate * float(1) / len(mileages) * (mileages[i] - prices[i]) * mileages[i]
 
 tmptheta0 += sumtheta0
 tmptheta1 += sumtheta1

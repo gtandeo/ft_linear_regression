@@ -48,15 +48,6 @@ def		draw(data):
 			w.create_line(x, y, x + 5, y, width=5)
 		i += 1
 
-	if os.path.exists("data/mileage.csv") is True and os.path.exists("data/estimated_price.csv") is True:
-		car_mileage = open("data/mileage.csv", "r")
-		car_price = open("data/estimated_price.csv", "r")
-		x = 125 * int(car_mileage.readline()) / 40000 + 50
-		y = 650 - (100 * int(car_price.readline()) / 1800) - 50
-		w.create_line(x, y, x + 5, y, fill="red", width=5)
-	else:
-		print "warning: missing data file \'data/estimated_price.csv\'"
-
 	mainloop()
 
 get_data(data)
