@@ -34,6 +34,7 @@ for line in my_data:
 		prices.append(int(tmp[1]))
 	i += 1
 
+#calc theta0 and theta1
 tmptheta0 = sum([learningRate * float(1) / len(mileages) * (mileages[i] - prices[i]) for i in range(0, len(mileages))])
 tmptheta1 = sum([learningRate * float(1) / len(mileages) * (mileages[i] - prices[i]) * mileages[i] for i in range(0, len(mileages))])
 
