@@ -9,8 +9,6 @@ prices = []
 learningRate = 0.15
 theta0 = 0.0
 theta1 = 0.0
-sumtheta0 = 0.0
-sumtheta1 = 0.0
 tmptheta0 = 0.0
 tmptheta1 = 0.0
 
@@ -36,12 +34,8 @@ for line in my_data:
 		prices.append(int(tmp[1]))
 	i += 1
 
-for i in range(0, len(mileages)):
-	sumtheta0 = sumtheta0 + learningRate * float(1) / len(mileages) * (mileages[i] - prices[i])
-	sumtheta1 = sumtheta1 + learningRate * float(1) / len(mileages) * (mileages[i] - prices[i]) * mileages[i]
-
-tmptheta0 += sumtheta0
-tmptheta1 += sumtheta1
+tmptheta0 = sum([learningRate * float(1) / len(mileages) * (mileages[i] - prices[i]) for i in range(0, len(mileages))])
+tmptheta1 = sum([learningRate * float(1) / len(mileages) * (mileages[i] - prices[i]) * mileages[i] for i in range(0, len(mileages))])
 
 theta0 = theta0 - tmptheta0
 theta1 = theta1 - tmptheta1
